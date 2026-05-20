@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function HeroSection() {
   const handleRequestReview = () => {
-    // Scroll to contact section or navigate
     const contactSection = document.getElementById('contacto');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -10,88 +11,99 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+    <section className="relative min-h-[85vh] flex items-center justify-center bg-securytech-azul overflow-hidden">
+      {/* Logo gigante de fondo */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        style={{
+          WebkitMaskImage:
+            'radial-gradient(ellipse at center, black 60%, transparent 90%)',
+          maskImage:
+            'radial-gradient(ellipse at center, black 60%, transparent 90%)',
+        }}
+      >
+        <Image
+          src="/Logo.jpeg"
+          alt=""
+          width={1800}
+          height={1800}
+          priority
+          aria-hidden="true"
+          className="w-[110%] max-w-[1400px] h-auto opacity-55 select-none"
+        />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Resplandor sutil dorado de fondo */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-securytech-dorado/15 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Contenido principal */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">
-              Servicio técnico disponible
+
+          {/* Insignia superior */}
+          <div className="inline-flex items-center gap-2 bg-securytech-dorado/10 border border-securytech-dorado/30 rounded-full px-4 py-2 mb-8 shadow-sm">
+            <span className="w-2 h-2 bg-securytech-dorado rounded-full animate-pulse" />
+            <span className="text-securytech-dorado-claro text-sm font-medium tracking-wide">
+              Servicio técnico disponible en Chilpancingo
             </span>
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Soporte Informático y{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              Mantenimiento de Sistemas Electrónicos
+          {/* Título principal con degradado dorado */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+            Soporte tecnológico <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-securytech-dorado to-securytech-dorado-claro">
+              rápido, seguro y confiable
             </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Optimiza tu tiempo y productividad con soluciones tecnológicas profesionales.
-            Desde reparación de equipos hasta instalación de sistemas de seguridad CCTV.
+          {/* Subtítulo */}
+          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Reparamos tus equipos, instalamos cámaras de seguridad y optimizamos tu red.
+            Soluciones prácticas para que la tecnología trabaje para ti, sin complicaciones.
           </p>
 
-          {/* CTA Buttons */}
+          {/* Etiquetas rápidas de servicios */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            <span className="px-4 py-2 bg-securytech-azul-destacado/80 text-slate-200 rounded-lg text-sm font-medium border border-securytech-dorado/20 flex items-center gap-2 backdrop-blur-sm shadow-sm">
+              💻 Reparación de PC y Laptops
+            </span>
+            <span className="px-4 py-2 bg-securytech-azul-destacado/80 text-slate-200 rounded-lg text-sm font-medium border border-securytech-dorado/20 flex items-center gap-2 backdrop-blur-sm shadow-sm">
+              📹 Instalación de Cámaras de Seguridad
+            </span>
+            <span className="px-4 py-2 bg-securytech-azul-destacado/80 text-slate-200 rounded-lg text-sm font-medium border border-securytech-dorado/20 flex items-center gap-2 backdrop-blur-sm shadow-sm">
+              🔧 Mantenimiento Preventivo
+            </span>
+          </div>
+
+          {/* Botones de acción */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={handleRequestReview}
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-securytech-dorado hover:bg-securytech-dorado-claro text-securytech-azul font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-securytech-dorado/40 hover:-translate-y-1"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Solicitar una revisión
+              Contactar ahora
             </button>
 
             <a
               href="#servicios"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/20 transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-securytech-azul-destacado hover:bg-securytech-azul-destacado/80 text-white font-semibold px-8 py-4 rounded-xl border border-securytech-dorado/30 transition-all duration-300 hover:-translate-y-1 shadow-sm"
             >
-              Ver servicios
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              Ver todos los servicios
             </a>
           </div>
 
-          {/* Stats Preview */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { value: '500+', label: 'Equipos reparados' },
-              { value: '5+', label: 'Años de experiencia' },
-              { value: '100%', label: 'Satisfacción' },
-              { value: '24/7', label: 'Soporte remoto' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Bottom Wave */}
+      {/* Ola decorativa inferior */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full translate-y-[1px]">
           <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>
       </div>
     </section>
   );
 }
-

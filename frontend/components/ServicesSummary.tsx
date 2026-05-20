@@ -9,9 +9,8 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: 'Soporte Tecnico',
-    description: 'Asistencia remota y presencial para resolver problemas de Equipos de computo,    ' +
-        ' y configuración de dispositivos.',
+    title: 'Soporte Técnico',
+    description: 'Asistencia remota y presencial para resolver problemas de equipos de cómputo y configuración de dispositivos.',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -50,10 +49,10 @@ export default function ServicesSummary() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
+          <span className="inline-block text-securytech-dorado font-semibold text-sm uppercase tracking-wider mb-3">
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-securytech-azul mb-4">
             Soluciones Tecnológicas Integrales
           </h2>
           <p className="text-gray-600 text-lg">
@@ -66,15 +65,15 @@ export default function ServicesSummary() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="group relative bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
+              className="group relative bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-securytech-dorado/50 hover:shadow-xl hover:shadow-securytech-dorado/10 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-14 h-14 bg-blue-50 group-hover:bg-blue-600 rounded-xl flex items-center justify-center text-blue-600 group-hover:text-white transition-all duration-300 mb-6">
+              <div className="w-14 h-14 bg-securytech-dorado/10 group-hover:bg-securytech-dorado rounded-xl flex items-center justify-center text-securytech-azul group-hover:text-securytech-azul transition-all duration-300 mb-6">
                 {service.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-securytech-azul mb-3 group-hover:text-securytech-dorado transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -85,7 +84,7 @@ export default function ServicesSummary() {
               <ul className="space-y-2 mb-6">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                    <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-securytech-dorado flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}
@@ -96,7 +95,7 @@ export default function ServicesSummary() {
               {/* CTA Link */}
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:gap-3 transition-all duration-300"
+                className="inline-flex items-center gap-2 text-securytech-dorado font-semibold text-sm hover:gap-3 transition-all duration-300"
               >
                 Más información
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +104,7 @@ export default function ServicesSummary() {
               </a>
 
               {/* Decorative Corner */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-50 to-transparent rounded-tr-2xl rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-securytech-dorado/10 to-transparent rounded-tr-2xl rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
@@ -117,7 +116,7 @@ export default function ServicesSummary() {
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg"
+            className="inline-flex items-center gap-2 bg-securytech-azul hover:bg-securytech-azul-destacado text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-securytech-azul/30"
           >
             Contáctanos para una solución personalizada
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,4 +128,3 @@ export default function ServicesSummary() {
     </section>
   );
 }
-

@@ -60,17 +60,17 @@ export default function AboutUs() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <div>
-            <span className="inline-block text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
+            <span className="inline-block text-securytech-dorado font-semibold text-sm uppercase tracking-wider mb-3">
               Sobre Nosotros
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-securytech-azul mb-6">
               Ingenieros comprometidos con tu{' '}
-              <span className="text-blue-600">tranquilidad tecnológica</span>
+              <span className="text-securytech-dorado">tranquilidad tecnológica</span>
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Somos un equipo de profesionales con formación en{' '}
-              <strong className="text-slate-900">Ingeniería en Sistemas e Informática</strong>,
+              <strong className="text-securytech-azul">Ingeniería en Sistemas e Informática</strong>,
               especializados en brindar soluciones tecnológicas integrales para hogares y empresas.
             </p>
 
@@ -85,7 +85,7 @@ export default function AboutUs() {
               {expertise.map((item, index) => (
                 <div
                   key={index}
-                  className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium"
+                  className="inline-flex items-center gap-2 bg-securytech-dorado/10 text-securytech-azul px-4 py-2 rounded-lg text-sm font-medium border border-securytech-dorado/30"
                 >
                   {item.icon}
                   {item.role}
@@ -96,7 +96,7 @@ export default function AboutUs() {
             {/* CTA */}
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30"
+              className="inline-flex items-center gap-2 bg-securytech-azul hover:bg-securytech-azul-destacado text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-securytech-azul/30"
             >
               Conoce más sobre nosotros
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,22 +108,22 @@ export default function AboutUs() {
           {/* Visual Side */}
           <div className="relative">
             {/* Main Card */}
-            <div className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-securytech-azul to-securytech-azul-destacado rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
                 }} />
               </div>
 
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-6">Nuestros Valores</h3>
+                <h3 className="text-2xl font-bold mb-6 text-securytech-dorado-claro">Nuestros Valores</h3>
 
                 <div className="space-y-6">
                   {values.map((value, index) => (
                     <div key={index} className="flex gap-4">
-                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-10 h-10 bg-securytech-dorado/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-5 h-5 text-securytech-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
@@ -136,23 +136,22 @@ export default function AboutUs() {
                 </div>
 
                 {/* Quote */}
-                <div className="mt-8 pt-8 border-t border-white/20">
+                <div className="mt-8 pt-8 border-t border-securytech-dorado/30">
                   <p className="text-white/80 italic">
-                    "Nuestro objetivo es que te olvides de los problemas técnicos
-                    y te concentres en lo que realmente importa."
+                    &ldquo;Nuestro objetivo es que te olvides de los problemas técnicos
+                    y te concentres en lo que realmente importa.&rdquo;
                   </p>
-                  <p className="text-white/60 text-sm mt-2">— Equipo SecurytechIT</p>
+                  <p className="text-securytech-dorado-claro text-sm mt-2">— Equipo SecurytechIT</p>
                 </div>
               </div>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 rounded-full blur-2xl opacity-60" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-200 rounded-full blur-2xl opacity-40" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-securytech-dorado/20 rounded-full blur-2xl opacity-60" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-securytech-dorado/30 rounded-full blur-2xl opacity-40" />
           </div>
         </div>
       </div>
     </section>
   );
 }
-

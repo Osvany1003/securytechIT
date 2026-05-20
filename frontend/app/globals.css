@@ -10,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ── SecurytechIT Brand Colors ── */
+  --color-securytech-azul: #001A33;
+  --color-securytech-azul-destacado: #003366;
+  --color-securytech-dorado: #D4AF37;
+  --color-securytech-dorado-claro: #F3E5AB;
 }
 
 @media (prefers-color-scheme: dark) {

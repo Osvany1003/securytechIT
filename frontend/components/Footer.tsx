@@ -23,17 +23,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-securytech-azul text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <Link href="#inicio" className="text-2xl font-bold mb-4 inline-block">
-              <span className="text-blue-500">Secury</span>
+              <span className="text-securytech-dorado">Secury</span>
               <span>techIT</span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-white/70 text-sm leading-relaxed mb-6">
               Soluciones tecnológicas profesionales para tu negocio y hogar.
               Especialistas en soporte informático, mantenimiento y seguridad electrónica.
             </p>
@@ -41,7 +41,7 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-securytech-azul-destacado hover:bg-securytech-dorado hover:text-securytech-azul rounded-lg flex items-center justify-center transition-colors duration-300"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-300"
+                className="w-10 h-10 bg-securytech-azul-destacado hover:bg-securytech-dorado hover:text-securytech-azul rounded-lg flex items-center justify-center transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -58,8 +58,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors duration-300"
+                href="https://wa.me/525668071790"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-securytech-azul-destacado hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors duration-300"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -71,13 +73,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+            <h3 className="text-lg font-semibold mb-4 text-securytech-dorado-claro">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
+                    className="text-white/70 hover:text-securytech-dorado transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -88,13 +90,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Servicios</h3>
+            <h3 className="text-lg font-semibold mb-4 text-securytech-dorado-claro">Servicios</h3>
             <ul className="space-y-3">
               {serviceLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
+                    className="text-white/70 hover:text-securytech-dorado transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -105,32 +107,32 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
+            <h3 className="text-lg font-semibold mb-4 text-securytech-dorado-claro">Contacto</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-securytech-dorado mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-gray-400 text-sm">
+                <span className="text-white/70 text-sm">
                   Chilpancingo, Guerrero<br />
                   México
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-securytech-dorado flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:contacto@securytechit.com" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  contacto@securytechit.com
+                <a href="mailto:seguritech111@gmail.com" className="text-white/70 hover:text-securytech-dorado transition-colors text-sm">
+                  seguritech111@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-securytech-dorado flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+527471234567" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  +52 747 123 4567
+                <a href="tel:+525668071790" className="text-white/70 hover:text-securytech-dorado transition-colors text-sm">
+                  +52 566 807 1790
                 </a>
               </li>
             </ul>
@@ -139,17 +141,17 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800">
+      <div className="border-t border-securytech-dorado/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm text-center md:text-left">
+            <p className="text-white/50 text-sm text-center md:text-left">
               © {currentYear} SecurytechIT. Todos los derechos reservados.
             </p>
             <div className="flex gap-6">
-              <Link href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">
+              <Link href="#" className="text-white/50 hover:text-securytech-dorado text-sm transition-colors">
                 Política de Privacidad
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">
+              <Link href="#" className="text-white/50 hover:text-securytech-dorado text-sm transition-colors">
                 Términos de Servicio
               </Link>
             </div>
@@ -159,4 +161,3 @@ export default function Footer() {
     </footer>
   );
 }
-
