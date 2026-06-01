@@ -1,3 +1,7 @@
+'use client';
+
+import { motion, useReducedMotion, type Variants } from 'motion/react';
+
 interface Stat {
   value: string;
   label: string;
@@ -23,26 +27,45 @@ const stats: Stat[] = [
 ];
 
 export default function StatsSection() {
+  const reduceMotion = useReducedMotion();
+
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: reduceMotion ? 0 : 0.12 } },
+  };
+
+  const item: Variants = {
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+  };
+
   return (
-    <section className="bg-securytech-azul py-10 md:py-12">
+    <section className="bg-surface py-14 md:py-16 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6">
+        <motion.div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+        >
           {stats.map((stat, i) => (
-            <div
+            <motion.div
               key={stat.label}
+              variants={item}
               className={`text-center px-2 lg:px-6 ${
-                i > 0 ? 'lg:border-l lg:border-white/10' : ''
+                i > 0 ? 'lg:border-l lg:border-border' : ''
               }`}
             >
-              <p className="text-3xl md:text-4xl font-bold text-securytech-dorado mb-2">
+              <p className="font-display text-4xl md:text-5xl font-bold text-securytech-dorado mb-2 tracking-tight">
                 {stat.value}
               </p>
-              <p className="text-sm text-white/70 leading-relaxed">
+              <p className="text-sm text-text-muted leading-relaxed">
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
