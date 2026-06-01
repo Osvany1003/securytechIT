@@ -12,6 +12,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
+  { href: '#precios', label: 'Precios' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#contacto', label: 'Contacto' },
 ];
@@ -47,7 +48,7 @@ export default function Navbar() {
           <Link href="#inicio" className="flex items-center gap-3" aria-label="Ir al inicio">
             <Image
               src="/Logo.jpeg"
-              alt="SecurytechIT"
+              alt="SECURITECH"
               width={160}
               height={56}
               className="h-11 md:h-14 w-auto object-contain rounded-md"

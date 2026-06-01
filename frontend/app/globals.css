@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 /* ============================================
-   SecurytechIT — Design Tokens
+   SECURITECH — Design Tokens
    Tailwind v4 con @theme inline
    ============================================ */
 
 :root {
+  /* Tema claro fijo — sin dark mode automático del sistema */
+  color-scheme: light;
+
   /* Marca — paleta primaria */
   --color-brand-azul: #001A33;
   --color-brand-azul-soft: #003366;
@@ -44,22 +47,6 @@
   --shadow-gold: 0 8px 24px -8px rgba(212, 175, 55, 0.35);
 }
 
-/* Modo oscuro automático del sistema operativo */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0f1c;
-    --color-foreground: #f8fafc;
-    --color-surface: #0f172a;
-    --color-surface-muted: #111c33;
-    --color-surface-strong: #1e293b;
-    --color-text: #f8fafc;
-    --color-text-muted: #cbd5e1;
-    --color-text-subtle: #94a3b8;
-    --color-border: #1e293b;
-    --color-border-strong: #334155;
-  }
-}
-
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
@@ -81,6 +68,7 @@
   /* Tipografía */
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-display: var(--font-sora), var(--font-geist-sans), system-ui, sans-serif;
 }
 
 * {
