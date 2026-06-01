@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { Plus } from 'lucide-react';
+import Section from '@/components/ui/Section';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 interface FAQItem {
   question: string;
@@ -52,68 +55,57 @@ export default function FAQSection() {
     setOpenIndex((current) => (current === index ? null : index));
 
   return (
-    <section id="preguntas" className="py-20 md:py-28 bg-surface">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block text-securytech-dorado font-semibold text-sm uppercase tracking-[0.15em] mb-3">
-            Preguntas Frecuentes
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-securytech-azul mb-4 tracking-tight">
-            Resolvemos tus dudas
-          </h2>
-          <p className="text-text-muted text-lg leading-relaxed">
-            Lo que más nos preguntan antes de contratar. ¿Te queda otra duda? Escríbenos por WhatsApp.
-          </p>
-        </div>
+    <Section id="preguntas" tone="muted">
+      <SectionHeading
+        eyebrow="Preguntas Frecuentes"
+        title="Resolvemos tus dudas"
+        subtitle="Lo que más nos preguntan antes de contratar. ¿Te queda otra duda? Escríbenos por WhatsApp."
+        className="mb-12 md:mb-16"
+      />
 
-        <div className="max-w-3xl mx-auto space-y-3">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
+      <div className="max-w-3xl mx-auto space-y-3">
+        {faqs.map((faq, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div
+              key={faq.question}
+              className={`bg-surface border rounded-2xl overflow-hidden transition-colors duration-300 ${
+                isOpen ? 'border-securytech-dorado/50 shadow-soft' : 'border-border'
+              }`}
+            >
+              <h3>
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  aria-expanded={isOpen}
+                  className="flex items-center justify-between gap-4 w-full text-left px-6 py-5 cursor-pointer"
+                >
+                  <span className="font-semibold text-securytech-azul">
+                    {faq.question}
+                  </span>
+                  <Plus
+                    className={`w-6 h-6 flex-shrink-0 text-securytech-dorado transition-transform duration-300 ${
+                      isOpen ? 'rotate-45' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+              </h3>
               <div
-                key={faq.question}
-                className={`bg-surface border rounded-2xl overflow-hidden transition-colors duration-300 ${
-                  isOpen ? 'border-securytech-dorado/50' : 'border-border'
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                 }`}
               >
-                <h3>
-                  <button
-                    type="button"
-                    onClick={() => toggle(index)}
-                    aria-expanded={isOpen}
-                    className="flex items-center justify-between gap-4 w-full text-left px-6 py-5 cursor-pointer"
-                  >
-                    <span className="font-semibold text-securytech-azul">
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`flex-shrink-0 text-securytech-dorado transition-transform duration-300 ${
-                        isOpen ? 'rotate-45' : ''
-                      }`}
-                      aria-hidden="true"
-                    >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                      </svg>
-                    </span>
-                  </button>
-                </h3>
-                <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-text-muted leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
+                <div className="overflow-hidden">
+                  <p className="px-6 pb-5 text-text-muted leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 }
