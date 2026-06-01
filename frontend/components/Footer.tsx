@@ -37,10 +37,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           <div className="lg:col-span-1">
-            <Link href="#inicio" className="inline-flex items-center gap-3 mb-5" aria-label="SecurytechIT">
+            <Link href="#inicio" className="inline-flex items-center gap-3 mb-5" aria-label="SECURITECH">
               <Image
                 src="/Logo.jpeg"
-                alt="SecurytechIT"
+                alt="SECURITECH"
                 width={160}
                 height={56}
                 className="h-12 w-auto object-contain rounded-md"
@@ -56,7 +56,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-securytech-azul-destacado hover:bg-securytech-dorado hover:text-securytech-azul rounded-lg flex items-center justify-center transition-colors duration-200"
-                aria-label="Facebook de SecurytechIT"
+                aria-label="Facebook de SECURITECH"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-securytech-dorado-claro font-semibold mb-4">Navegación</h3>
+            <h3 className="font-display text-securytech-dorado-claro font-semibold mb-4">Navegación</h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-securytech-dorado-claro font-semibold mb-4">Servicios</h3>
+            <h3 className="font-display text-securytech-dorado-claro font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
@@ -114,7 +114,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-securytech-dorado-claro font-semibold mb-4">Contacto</h3>
+            <h3 className="font-display text-securytech-dorado-claro font-semibold mb-4">Contacto</h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <a href={`tel:+${PHONE_RAW}`} className="flex items-start gap-2.5 text-white/70 hover:text-securytech-dorado transition-colors">
@@ -144,7 +144,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-securytech-azul-destacado flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <p>© {currentYear} SecurytechIT. Todos los derechos reservados.</p>
+          <p>© {currentYear} SECURITECH. Todos los derechos reservados.</p>
           <p>Chilpancingo, Guerrero · México</p>
         </div>
       </div>

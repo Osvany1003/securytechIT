@@ -29,8 +29,8 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: {
-    default: "SecurytechIT | Soporte Informático y Seguridad Electrónica",
-    template: "%s | SecurytechIT",
+    default: "SECURITECH | Soporte Informático y Seguridad Electrónica",
+    template: "%s | SECURITECH",
   },
   description:
     "Expertos en ingeniería, soporte informático, mantenimiento de hardware e instalación de cámaras de seguridad CCTV en Chilpancingo, Guerrero.",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
     "Chilpancingo",
     "reparación de computadoras",
   ],
-  authors: [{ name: "SecurytechIT" }],
-  creator: "SecurytechIT",
+  authors: [{ name: "SECURITECH" }],
+  creator: "SECURITECH",
   metadataBase: new URL("https://www.securytechit.com"),
   openGraph: {
-    title: "SecurytechIT | Soporte Informático y Seguridad Electrónica",
+    title: "SECURITECH | Soporte Informático y Seguridad Electrónica",
     description:
       "Soluciones tecnológicas profesionales en Chilpancingo, Guerrero. Soporte informático, mantenimiento, CCTV.",
     url: "https://www.securytechit.com",
-    siteName: "SecurytechIT",
+    siteName: "SECURITECH",
     locale: "es_MX",
     type: "website",
     images: [
@@ -58,13 +58,13 @@ export const metadata: Metadata = {
         url: "/img/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SecurytechIT",
+        alt: "SECURITECH",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SecurytechIT | Soporte Informático y Seguridad Electrónica",
+    title: "SECURITECH | Soporte Informático y Seguridad Electrónica",
     description:
       "Soluciones tecnológicas profesionales en Chilpancingo, Guerrero.",
     images: ["/img/og-image.png"],
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "SecurytechIT",
+  name: "SECURITECH",
   image: "https://www.securytechit.com/img/og-image.png",
   "@id": "https://www.securytechit.com",
   url: "https://www.securytechit.com",

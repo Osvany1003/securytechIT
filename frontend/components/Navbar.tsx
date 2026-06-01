@@ -48,7 +48,7 @@ export default function Navbar() {
           <Link href="#inicio" className="flex items-center gap-3" aria-label="Ir al inicio">
             <Image
               src="/Logo.jpeg"
-              alt="SecurytechIT"
+              alt="SECURITECH"
               width={160}
               height={56}
               className="h-11 md:h-14 w-auto object-contain rounded-md"
