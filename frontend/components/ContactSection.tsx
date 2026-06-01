@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, FormEvent, ChangeEvent } from 'react';
+import { Phone, Mail, Check } from 'lucide-react';
+import Section from '@/components/ui/Section';
 
 interface FormData {
   nombre: string;
@@ -20,6 +22,13 @@ const PHONE_DISPLAY = '+52 56 6807 1790';
 const EMAIL = 'seguritech111@gmail.com';
 const INSTAGRAM_URL = 'https://www.instagram.com/seguritech_mx';
 const FACEBOOK_URL = 'https://www.facebook.com/share/1CdBYX2moR/';
+
+const benefits = [
+  'Respuesta el mismo día por WhatsApp',
+  'Cotización sin costo ni compromiso',
+  'Garantía por escrito en cada servicio',
+  'Atención a domicilio en Chilpancingo',
+];
 
 const problemTypes = [
   { value: '', label: 'Selecciona el tipo de problema' },
@@ -66,11 +75,7 @@ const contactChannels: ContactChannel[] = [
     href: `tel:+${WHATSAPP_NUMBER}`,
     external: false,
     iconBg: 'bg-securytech-dorado',
-    icon: (
-      <svg className="w-6 h-6 text-securytech-azul" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
-    ),
+    icon: <Phone className="w-6 h-6 text-securytech-azul" aria-hidden="true" />,
   },
   {
     label: 'Correo',
@@ -79,11 +84,7 @@ const contactChannels: ContactChannel[] = [
     href: `mailto:${EMAIL}`,
     external: false,
     iconBg: 'bg-blue-500',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
+    icon: <Mail className="w-6 h-6 text-white" aria-hidden="true" />,
   },
   {
     label: 'Instagram',
@@ -203,51 +204,67 @@ export default function ContactSection() {
     }, 4000);
   };
 
-  return (
-    <section id="contacto" className="py-20 md:py-28 bg-surface">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  const inputBase =
+    'w-full px-4 py-3 rounded-xl border bg-surface text-securytech-azul placeholder-text-subtle focus:outline-none focus:ring-2 focus:ring-securytech-dorado/40 transition';
 
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+  return (
+    <Section id="contacto" tone="light">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        {/* Columna izquierda: mensaje + beneficios + canales */}
+        <div>
           <span className="inline-block text-securytech-dorado font-semibold text-sm uppercase tracking-[0.15em] mb-3">
             Estamos para ayudarte
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-securytech-azul mb-4 tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-securytech-azul mb-4 tracking-tight leading-tight">
             Contáctanos por el medio que prefieras
           </h2>
-          <p className="text-text-muted text-lg leading-relaxed">
-            Elige el canal más cómodo para ti. Respondemos en horario laboral.
+          <p className="text-text-muted text-lg leading-relaxed mb-6">
+            Elige el canal más cómodo para ti, o llena el formulario y te escribimos
+            por WhatsApp. Respondemos en horario laboral.
           </p>
+
+          <ul className="space-y-3 mb-8">
+            {benefits.map((benefit) => (
+              <li key={benefit} className="flex items-center gap-3 text-text-muted">
+                <span className="w-6 h-6 rounded-full bg-securytech-dorado/15 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-4 h-4 text-securytech-dorado" aria-hidden="true" />
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {contactChannels.map((channel) => {
+              const isExternal = channel.external;
+              return (
+                <a
+                  key={channel.label}
+                  href={channel.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  className="group bg-surface border border-border rounded-2xl p-4 hover:border-securytech-dorado/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3"
+                  aria-label={`Contactar por ${channel.label}: ${channel.value}`}
+                >
+                  <div className={`${channel.iconBg} text-white w-11 h-11 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform flex-shrink-0`}>
+                    {channel.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-securytech-azul leading-tight">{channel.label}</p>
+                    <p className="text-sm text-text-muted truncate">{channel.value}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16 md:mb-20">
-          {contactChannels.map((channel) => {
-            const isExternal = channel.external;
-            return (
-              <a
-                key={channel.label}
-                href={channel.href}
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noopener noreferrer' : undefined}
-                className="group bg-surface border border-border rounded-2xl p-5 hover:border-securytech-dorado/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-3"
-                aria-label={`Contactar por ${channel.label}: ${channel.value}`}
-              >
-                <div className={`${channel.iconBg} text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
-                  {channel.icon}
-                </div>
-                <div className="space-y-0.5">
-                  <p className="font-semibold text-securytech-azul">{channel.label}</p>
-                  <p className="text-xs text-text-subtle">{channel.description}</p>
-                  <p className="text-sm text-text-muted font-medium truncate">{channel.value}</p>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-
-        <div className="max-w-3xl mx-auto bg-surface border border-border rounded-3xl p-6 md:p-10 shadow-lg">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-securytech-azul mb-3">
-              O envíanos tu solicitud
+        {/* Columna derecha: formulario en card */}
+        <div className="bg-surface border border-border rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg">
+          <div className="mb-8">
+            <h3 className="font-display text-2xl font-bold text-securytech-azul mb-2 tracking-tight">
+              Solicita tu cotización
             </h3>
             <p className="text-text-muted">
               Llena el formulario y te contactaremos por WhatsApp.
@@ -257,11 +274,9 @@ export default function ContactSection() {
           {isSubmitted ? (
             <div className="text-center py-10">
               <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+                <Check className="w-8 h-8 text-green-600" aria-hidden="true" />
               </div>
-              <h4 className="text-xl font-bold text-securytech-azul mb-2">¡Te redirigimos a WhatsApp!</h4>
+              <h4 className="font-display text-xl font-bold text-securytech-azul mb-2">¡Te redirigimos a WhatsApp!</h4>
               <p className="text-text-muted">
                 Si no se abrió la ventana, revisa que tu navegador no haya
                 bloqueado las pop-ups y vuelve a intentarlo.
@@ -280,9 +295,7 @@ export default function ContactSection() {
                     type="text"
                     value={formData.nombre}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-xl border bg-surface text-securytech-azul placeholder-text-subtle focus:outline-none focus:ring-2 focus:ring-securytech-dorado/40 transition ${
-                      errors.nombre ? 'border-red-400' : 'border-border'
-                    }`}
+                    className={`${inputBase} ${errors.nombre ? 'border-red-400' : 'border-border'}`}
                     placeholder="Tu nombre"
                   />
                   {errors.nombre && <p className="text-red-500 text-xs mt-1">{errors.nombre}</p>}
@@ -298,9 +311,7 @@ export default function ContactSection() {
                     type="tel"
                     value={formData.telefono}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-xl border bg-surface text-securytech-azul placeholder-text-subtle focus:outline-none focus:ring-2 focus:ring-securytech-dorado/40 transition ${
-                      errors.telefono ? 'border-red-400' : 'border-border'
-                    }`}
+                    className={`${inputBase} ${errors.telefono ? 'border-red-400' : 'border-border'}`}
                     placeholder="10 dígitos"
                   />
                   {errors.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
@@ -316,9 +327,7 @@ export default function ContactSection() {
                   name="tipoProblema"
                   value={formData.tipoProblema}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border bg-surface text-securytech-azul focus:outline-none focus:ring-2 focus:ring-securytech-dorado/40 transition ${
-                    errors.tipoProblema ? 'border-red-400' : 'border-border'
-                  }`}
+                  className={`${inputBase} ${errors.tipoProblema ? 'border-red-400' : 'border-border'}`}
                 >
                   {problemTypes.map((t) => (
                     <option key={t.value} value={t.value}>{t.label}</option>
@@ -337,7 +346,7 @@ export default function ContactSection() {
                   value={formData.mensaje}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-surface text-securytech-azul placeholder-text-subtle focus:outline-none focus:ring-2 focus:ring-securytech-dorado/40 transition resize-none"
+                  className={`${inputBase} border-border resize-none`}
                   placeholder="Cuéntanos más detalles sobre tu problema..."
                 />
               </div>
@@ -368,6 +377,6 @@ export default function ContactSection() {
           )}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
