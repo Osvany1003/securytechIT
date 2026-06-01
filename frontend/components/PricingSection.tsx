@@ -1,3 +1,8 @@
+import { Check, Star } from 'lucide-react';
+import Section from '@/components/ui/Section';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Reveal from '@/components/ui/Reveal';
+
 interface Plan {
   name: string;
   price: string;
@@ -89,61 +94,48 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function CheckIcon() {
-  return (
-    <svg className="w-4 h-4 text-securytech-dorado flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.25} d="M5 13l4 4L19 7" />
-    </svg>
-  );
-}
-
 export default function PricingSection() {
   return (
-    <section id="precios" className="py-20 md:py-28 bg-surface-muted">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
-          <span className="inline-block text-securytech-dorado font-semibold text-sm uppercase tracking-[0.15em] mb-3">
-            Precios
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-securytech-azul mb-4 tracking-tight">
-            Precios claros, sin sorpresas
-          </h2>
-          <p className="text-text-muted text-lg leading-relaxed">
-            Todos los precios incluyen mano de obra, materiales e IVA. Cotización sin costo.
-          </p>
-        </div>
+    <Section id="precios" tone="muted">
+      <SectionHeading
+        eyebrow="Precios"
+        title="Precios claros, sin sorpresas"
+        subtitle="Todos los precios incluyen mano de obra, materiales e IVA. Cotización sin costo."
+        className="mb-14 md:mb-20"
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
-          {plans.map((plan) => (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+        {plans.map((plan, i) => (
+          <Reveal key={plan.name} delay={i * 0.1} className="h-full">
             <article
-              key={plan.name}
               className={`relative flex flex-col h-full bg-surface rounded-2xl p-7 md:p-8 transition-all duration-300 ${
                 plan.featured
                   ? 'border-2 border-securytech-dorado shadow-gold lg:-mt-4 lg:mb-4'
-                  : 'border border-border hover:border-securytech-dorado/50 hover:shadow-lg'
+                  : 'border border-border hover:border-securytech-dorado/50 hover:shadow-lg hover:-translate-y-1'
               }`}
             >
               {plan.featured && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-securytech-dorado text-securytech-azul text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full shadow-md">
+                  <Star className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
                   Más popular
                 </span>
               )}
 
-              <h3 className="text-xl font-bold text-securytech-azul mb-1">
+              <h3 className="font-display text-xl font-bold text-securytech-azul mb-1">
                 {plan.name}
               </h3>
               <p className="text-text-muted text-sm leading-relaxed mb-4">
                 {plan.description}
               </p>
 
-              <p className="text-3xl font-bold text-securytech-azul mb-6">
+              <p className="font-display text-3xl md:text-4xl font-bold text-securytech-azul mb-6 tracking-tight">
                 {plan.price}
               </p>
 
               <ul className="space-y-2.5 mb-8 flex-1">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm text-text-muted">
-                    <CheckIcon />
+                    <Check className="w-4 h-4 text-securytech-dorado flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {feature}
                   </li>
                 ))}
@@ -157,52 +149,56 @@ export default function PricingSection() {
                 className={`inline-flex items-center justify-center gap-2 w-full font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 ${
                   plan.featured
                     ? 'bg-securytech-dorado hover:bg-securytech-dorado-claro text-securytech-azul shadow-lg hover:shadow-securytech-dorado/40'
-                    : 'bg-securytech-azul hover:bg-securytech-azul-destacado text-white'
+                    : 'border-2 border-securytech-azul text-securytech-azul hover:bg-securytech-azul hover:text-white'
                 }`}
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 Cotizar por WhatsApp
               </a>
             </article>
+          </Reveal>
+        ))}
+      </div>
+
+      <p className="text-center text-text-subtle text-sm mt-8">
+        Precios de referencia; la cotización final puede variar según el sitio. Todos incluyen IVA.
+      </p>
+
+      <div className="mt-16 md:mt-20">
+        <h3 className="font-display text-center text-2xl font-bold text-securytech-azul mb-8 tracking-tight">
+          Otros servicios
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {extraServices.map((service) => (
+            <article
+              key={service.title}
+              className="bg-surface border border-border rounded-2xl p-7 hover:border-securytech-dorado/50 hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex items-baseline justify-between gap-4 mb-3">
+                <h4 className="font-display text-lg font-bold text-securytech-azul">
+                  {service.title}
+                </h4>
+                <span className="text-securytech-dorado font-bold whitespace-nowrap">
+                  {service.price}
+                </span>
+              </div>
+              <p className="text-text-muted text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </article>
           ))}
         </div>
-
-        <div className="mt-16 md:mt-20">
-          <h3 className="text-center text-2xl font-bold text-securytech-azul mb-8 tracking-tight">
-            Otros servicios
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {extraServices.map((service) => (
-              <article
-                key={service.title}
-                className="bg-surface border border-border rounded-2xl p-7 hover:border-securytech-dorado/50 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-baseline justify-between gap-4 mb-3">
-                  <h4 className="text-lg font-bold text-securytech-azul">
-                    {service.title}
-                  </h4>
-                  <span className="text-securytech-dorado font-bold whitespace-nowrap">
-                    {service.price}
-                  </span>
-                </div>
-                <p className="text-text-muted text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <p className="text-center text-text-muted mt-12">
-          ¿Tienes un proyecto especial?{' '}
-          <a
-            href="#contacto"
-            className="text-securytech-dorado font-semibold hover:text-securytech-azul transition-colors underline-offset-4 hover:underline"
-          >
-            Cotización personalizada sin costo
-          </a>
-        </p>
       </div>
-    </section>
+
+      <p className="text-center text-text-muted mt-12">
+        ¿Tienes un proyecto especial?{' '}
+        <a
+          href="#contacto"
+          className="text-securytech-dorado font-semibold hover:text-securytech-azul transition-colors underline-offset-4 hover:underline"
+        >
+          Cotización personalizada sin costo
+        </a>
+      </p>
+    </Section>
   );
 }
