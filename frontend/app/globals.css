@@ -6,6 +6,9 @@
    ============================================ */
 
 :root {
+  /* Tema claro fijo — sin dark mode automático del sistema */
+  color-scheme: light;
+
   /* Marca — paleta primaria */
   --color-brand-azul: #001A33;
   --color-brand-azul-soft: #003366;
@@ -42,22 +45,6 @@
   --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.10), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
   --shadow-gold: 0 8px 24px -8px rgba(212, 175, 55, 0.35);
-}
-
-/* Modo oscuro automático del sistema operativo */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0f1c;
-    --color-foreground: #f8fafc;
-    --color-surface: #0f172a;
-    --color-surface-muted: #111c33;
-    --color-surface-strong: #1e293b;
-    --color-text: #f8fafc;
-    --color-text-muted: #cbd5e1;
-    --color-text-subtle: #94a3b8;
-    --color-border: #1e293b;
-    --color-border-strong: #334155;
-  }
 }
 
 @theme inline {
