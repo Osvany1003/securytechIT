@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface Service {
   id: number;
   title: string;
@@ -85,19 +87,29 @@ export default function ServicesSummary() {
               key={service.id}
               className="group relative bg-surface border border-border rounded-2xl overflow-hidden hover:border-securytech-dorado/50 hover:shadow-lg transition-all duration-300"
             >
-              {/* TODO: reemplazar por <Image src={`/img/${service.placeholderFile}`} ... /> cuando haya foto real */}
+              {/* id 3 (Seguridad / CCTV) usa foto real; el resto mantiene placeholder hasta tener foto */}
               <div
-                className="relative aspect-video image-placeholder"
-                aria-label={service.placeholderLabel}
-                role="img"
+                className={`relative aspect-video overflow-hidden ${service.id === 3 ? '' : 'image-placeholder'}`}
+                aria-label={service.id === 3 ? undefined : service.placeholderLabel}
+                role={service.id === 3 ? undefined : 'img'}
               >
-                <div className="absolute inset-0 flex items-center justify-center text-securytech-dorado-claro/40">
-                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.25} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
+                {service.id === 3 ? (
+                  <Image
+                    src="/img/hero-instalacion.jpeg"
+                    alt="Instalación profesional de cámara de seguridad WiFi Hikvision en negocio local — SecurytechIT Chilpancingo"
+                    width={640}
+                    height={360}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-securytech-dorado-claro/40">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.25} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                )}
 
-                <div className="absolute -bottom-6 left-6 w-14 h-14 bg-securytech-dorado text-securytech-azul rounded-2xl flex items-center justify-center shadow-lg group-hover:bg-securytech-dorado-claro transition-colors">
+                <div className="absolute -bottom-6 left-6 w-14 h-14 bg-securytech-dorado text-securytech-azul rounded-2xl flex items-center justify-center shadow-lg group-hover:bg-securytech-dorado-claro transition-colors z-10">
                   {service.icon}
                 </div>
               </div>

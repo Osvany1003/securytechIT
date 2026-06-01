@@ -9,6 +9,7 @@ interface FooterLink {
 const quickLinks: FooterLink[] = [
   { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
+  { href: '#precios', label: 'Precios' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#contacto', label: 'Contacto' },
 ];
